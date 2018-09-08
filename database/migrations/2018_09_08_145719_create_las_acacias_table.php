@@ -14,7 +14,8 @@ class CreateLasAcaciasTable extends Migration
     public function up()
     {
         Schema::create('las_acacias', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idGranja');
+            $table->string('nombre_Granja');
             $table->timestamps();
         });
     }

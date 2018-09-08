@@ -14,7 +14,11 @@ class CreateVentaToursTable extends Migration
     public function up()
     {
         Schema::create('venta_tours', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idVentaTour');
+            $table->integer('cantidad');
+            $table->integer('precio');            
+            $table->integer('tour_idTour')->unsigned();
+            $table->foreing('tour_idTour')->reference('idTour')->on('Tour');
             $table->timestamps();
         });
     }
