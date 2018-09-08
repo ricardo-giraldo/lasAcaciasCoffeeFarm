@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Felipe
+                    Las Acacias Coffee Farm
                 </div>
 
                 <div class="links">
