@@ -160,12 +160,6 @@ return [
         lasAcaciasCoffeeFarm\Providers\EventServiceProvider::class,
         lasAcaciasCoffeeFarm\Providers\RouteServiceProvider::class,
 
-        /*
-        *Provider agregados manualmente
-        */
-        Collective\Html\HtmlServiceProvider::class,
-        Laravel\Tinker\TinkerServiceProvider::class,
-
     ],
 
     /*
