@@ -13,9 +13,14 @@ class CreateAdministradorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('administradors', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('administrador', function (Blueprint $table) {
+            $table->increments('idAdministrador');
+            $table->string('nombre_usuario');
+            $table->string('contrasenia');
+            $table->integer('granja_idGranja')-> unsigned(); 
+            $table->foreing('granja_idGranja')-> reference('idGranja')-> on('Granja');
             $table->timestamps();
+
         });
     }
 
@@ -26,6 +31,6 @@ class CreateAdministradorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('administradors');
+        Schema::dropIfExists('administrador');
     }
 }

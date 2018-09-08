@@ -14,13 +14,17 @@ class CreateTiquetesTable extends Migration
     public function up()
     {
         Schema::create('tiquetes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idTiquete');
+            $table->integer('numero');
+            $table->integer('precio');
+            $table->integer('hospedaje_idHospedaje')-> unsigned(); 
+            $table->foreing('hospedaje_idHospedaje')-> reference('idHospedaje')-> on('Hospedaje');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.s
      *
      * @return void
      */
