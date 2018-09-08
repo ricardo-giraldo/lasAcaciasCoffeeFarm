@@ -14,7 +14,14 @@ class CreateToursTable extends Migration
     public function up()
     {
         Schema::create('tours', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idTour');
+            $table->integer('precio');
+            $table->integer('granja_idGranja')-> unsigned(); 
+            $table->foreing('granja_idGranja')-> reference('idGranja')-> on('Granja');
+            $table->integer('tipoTour')-> unsigned(); 
+            $table->foreing('tipoTour')-> reference('idTour')-> on('TipoTour');
+
+
             $table->timestamps();
         });
     }
