@@ -14,10 +14,10 @@ class CreateHospedajesTable extends Migration
     public function up()
     {
         Schema::create('hospedajes', function (Blueprint $table) {
-            $table->increments('idHospedaje');
+            $table->increments('id');
             $table->string('nombre');
-            $table->integer('granja_idGranja')-> unsigned(); 
-            $table->foreing('granja_idGranja')-> reference('idGranja')-> on('Granja');
+            $table->integer('id_granja')->unsigned();
+            $table->foreign('id_granja')->references('id')->on('granjas');
             $table->timestamps();
         });
     }

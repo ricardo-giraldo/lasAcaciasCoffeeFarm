@@ -4,24 +4,24 @@ namespace lasAcaciasCoffeeFarm;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
+class producto extends Model
 {
-    protected $table = 'Producto';
-    protected $primaryKey = 'idProducto';
-    protected $fillable = ['nombre', 'precio', 'tipoProducto' 'granja_idGranja',];
+    protected $table = 'producto';
+
+    protected $fillable = ['nombre', 'precio', 'cantidad'];
+
+     public function tipo_producto()
+    {
+        return $this->belongsTo('lasAcaciasCoffeeFarm\tipo_producto', 'foreign_key');
+    }
 
     public function granja()
     {
-        return $this->belongsTo('lasAcaciasCoffeeFarm\LasAcacias');
+        return $this->hasOne('lasAcaciasCoffeeFarm\granja', 'foreign_key');
     }
 
-    public function tipoProducto()
+    public function venta_producto()
     {
-        return $this->belongsTo('lasAcaciasCoffeeFarm\TipoProducto');
-    }
-
-    public function ventaProducto()
-    {
-        return $this->hasMany('lasAcaciasCoffeeFarm\VentaProducto');
+        return $this->belongsToMany('lasAcaciasCoffeeFarm\venta_producto');
     }
 }

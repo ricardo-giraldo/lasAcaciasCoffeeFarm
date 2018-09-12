@@ -14,10 +14,11 @@ class CreateVentaProductosTable extends Migration
     public function up()
     {
         Schema::create('venta_productos', function (Blueprint $table) {
-            $table->increments('idVentaProduct');
-            $table->integer('precio');
-            $table->integer('producto_idProducto')->unsigned();
-            $table->foreing('producto_idProducto')->reference('idProducto')->on('Producto');
+            $table->increments('id');
+            $table->string('cantidad');
+            $table->string('precio');
+            $table->integer('id_producto')->unsigned();
+            $table->foreign('id_producto')->references('id')->on('productos');
             $table->timestamps();
         });
     }

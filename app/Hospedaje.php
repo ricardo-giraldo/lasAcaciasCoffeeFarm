@@ -4,19 +4,20 @@ namespace lasAcaciasCoffeeFarm;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hospedaje extends Model
+class hospedaje extends Model
 {
-    protected $table = 'Hospedaje';
-    protected $primaryKey = 'idHospedaje';
-    protected $fillable = ['nombre', 'granja_idGranja',];
+    protected $table = 'hospedaje';
 
-    public function granja()
+    protected $fillable = ['nombre'];
+
+     public function granja()
     {
-        return $this->belongsTo('lasAcaciasCoffeeFarm\LasAcacias');
+        return $this->hasOne('lasAcaciasCoffeeFarm\granja', 'foreign_key');
     }
 
     public function tiquete()
     {
-        return $this->belongsTo('lasAcaciasCoffeeFarm\Tiquete');
+        return $this->hasMany('lasAcaciasCoffeeFarm\tiquete', 'foreign_key');
     }
+    
 }

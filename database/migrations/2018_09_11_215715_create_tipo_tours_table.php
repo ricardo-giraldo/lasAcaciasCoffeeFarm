@@ -14,7 +14,7 @@ class CreateTipoToursTable extends Migration
     public function up()
     {
         Schema::create('tipo_tours', function (Blueprint $table) {
-            $table->increments('idTipoTour');
+            $table->increments('id');
             $table->string('descripcion');
             $table->timestamps();
         });

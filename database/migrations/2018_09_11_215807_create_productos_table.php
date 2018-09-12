@@ -14,11 +14,13 @@ class CreateProductosTable extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->increments('idProducto');
+            $table->increments('id');
             $table->string('nombre');
-            $table->integer('precio');
-            $table->integer('granja_idGranja')->unsigned();
-            $table->foreing('granja_idGranja')->reference()->on('Granja');
+            $table->string('precio');
+            $table->integer('id_granja')->unsigned();
+            $table->foreign('id_granja')->references('id')->on('granjas');
+            $table->integer('id_tipo_producto')->unsigned();
+            $table->foreign('id_tipo_producto')->references('id')->on('tipo_productos');
             $table->timestamps();
         });
     }

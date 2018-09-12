@@ -4,19 +4,19 @@ namespace lasAcaciasCoffeeFarm;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tiquete extends Model
+class tiquete extends Model
 {
-    protected $table = 'Tiquete';
-    protected $primaryKey = 'idTiquete';
-    protected $fillable = ['numero', 'precio', 'hospedaje_idHospedaje',];
+    protected $table = 'tiquete';
 
-    public function hospedaje()
+    protected $fillable = ['numero', 'precio'];
+
+     public function hospedaje()
     {
-        return $this->belongsTo('App\Hospedaje');
+        return $this->belongsTo('lasAcaciasCoffeeFarm\hospedaje', 'foreign_key');
     }
 
-    public function ventaTour()
+    public function venta_tour()
     {
-        return $this->hasMany('App\VentaTour');
+        return $this->belongsTo('lasAcaciasCoffeeFarm\venta_tour', 'foreign_key');
     }
 }
