@@ -17,6 +17,7 @@ class ComposerStaticInitf1533982df2fb5131fc3dbee10d32019
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -107,6 +108,7 @@ class ComposerStaticInitf1533982df2fb5131fc3dbee10d32019
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
         ),
         'B' => 
         array (
@@ -277,6 +279,10 @@ class ComposerStaticInitf1533982df2fb5131fc3dbee10d32019
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'BeyondCode\\DumpServer\\' => 
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
@@ -337,6 +343,13 @@ class ComposerStaticInitf1533982df2fb5131fc3dbee10d32019
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -3650,6 +3663,7 @@ class ComposerStaticInitf1533982df2fb5131fc3dbee10d32019
         'lasAcaciasCoffeeFarm\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'lasAcaciasCoffeeFarm\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'lasAcaciasCoffeeFarm\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'lasAcaciasCoffeeFarm\\Http\\Controllers\\ControladorInicioSesion' => __DIR__ . '/../..' . '/app/Http/Controllers/ControladorInicioSesion.php',
         'lasAcaciasCoffeeFarm\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'lasAcaciasCoffeeFarm\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'lasAcaciasCoffeeFarm\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -3668,7 +3682,6 @@ class ComposerStaticInitf1533982df2fb5131fc3dbee10d32019
         'lasAcaciasCoffeeFarm\\granja' => __DIR__ . '/../..' . '/app/granja.php',
         'lasAcaciasCoffeeFarm\\hospedaje' => __DIR__ . '/../..' . '/app/hospedaje.php',
         'lasAcaciasCoffeeFarm\\producto' => __DIR__ . '/../..' . '/app/producto.php',
-        'lasAcaciasCoffeeFarm\\producto_venta_producto' => __DIR__ . '/../..' . '/app/producto_venta_producto.php',
         'lasAcaciasCoffeeFarm\\tipo_producto' => __DIR__ . '/../..' . '/app/tipo_producto.php',
         'lasAcaciasCoffeeFarm\\tipo_tour' => __DIR__ . '/../..' . '/app/tipo_tour.php',
         'lasAcaciasCoffeeFarm\\tiquete' => __DIR__ . '/../..' . '/app/tiquete.php',

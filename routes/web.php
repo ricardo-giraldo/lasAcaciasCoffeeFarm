@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('inicioSesion');
 });
 
+Route::resource('inicioSesion','ControladorInicioSesion');
+
