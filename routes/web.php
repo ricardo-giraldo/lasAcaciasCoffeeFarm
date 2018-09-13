@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 Route::resource('inicioSesion','ControladorInicioSesion');
 
+Route::resource('inicioTiquete','ControladorTiquete');
+
