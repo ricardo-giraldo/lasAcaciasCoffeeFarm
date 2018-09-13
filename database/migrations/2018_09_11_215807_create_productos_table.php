@@ -17,6 +17,7 @@ class CreateProductosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('precio');
+            $table->integer('cantidad');
             $table->integer('id_granja')->unsigned();
             $table->foreign('id_granja')->references('id')->on('granjas');
             $table->integer('id_tipo_producto')->unsigned();
