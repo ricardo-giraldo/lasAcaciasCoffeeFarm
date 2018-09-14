@@ -121,9 +121,8 @@
 
 
 		<section id="pantallaTiquete", class="pantallaTiquetes">
-			<h1>Registro y gestión de tiquetes</h1>
-		</section>
-		<section id="pantallaReporte", class="pantallaReportes">
+			<h1>Registro y gestión de tiquetes</h1>  
+			<section id="pantallaReporte", class="pantallaReportes">
 			<h1>Reportes</h1>
 		</section>
 	</main>
