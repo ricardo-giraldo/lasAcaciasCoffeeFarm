@@ -25,5 +25,3 @@ Route::get('/productos/eliminar/{id}','ControladorProductos@eliminarProducto');
 
 Route::get('/productos/actualizar/{id}','ControladorProductos@actualizarProducto');
 
-//Route::put('/productos/actualizar/{id}',['uses'=>'ControladorProductos@actualizarProducto','as'=>'inicioAdministracion.actualizarProducto']);
-
