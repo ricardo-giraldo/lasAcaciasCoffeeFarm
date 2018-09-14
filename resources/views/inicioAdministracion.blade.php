@@ -112,8 +112,14 @@
 		</section>
 		<section id="pantallaHospedaje", class="pantallaHospedajes">
 			<h1>Registro y gestión de hospedajes</h1>
-			<h1></h1>
+			<h1>
+				<div id='generalHospedaje'>
+					
+				</div>
+			</h1>
 		</section>
+
+
 		<section id="pantallaTiquete", class="pantallaTiquetes">
 			<h1>Registro y gestión de tiquetes</h1>
 		</section>

@@ -18,4 +18,5 @@ Route::get('/', function () {
 Route::resource('inicioSesion','ControladorInicioSesion');
 
 Route::resource('inicioAdministracion','ControladorProductos');
+Route::resource('inicioAdministracion','ControladorAdministracion');
 
