@@ -17,5 +17,11 @@ Route::get('/', function () {
 
 Route::resource('inicioSesion','ControladorInicioSesion');
 
-Route::resource('inicioAdministracion','ControladorProductos');
+Route::resource('/productos/registrar','ControladorProductos');
+
+Route::get('/productos/editar/{id}','ControladorProductos@editarProducto');
+
+Route::get('/productos/eliminar/{id}','ControladorProductos@eliminarProducto');
+
+Route::put('/productos/actualizar/{id}',['uses'=>'ControladorProductos@actualizarProducto','as'=>'inicioAdministracion.actualizarProducto']);
 
