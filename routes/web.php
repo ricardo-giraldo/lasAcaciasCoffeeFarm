@@ -20,5 +20,6 @@ Route::resource('inicioSesion','ControladorInicioSesion');
 Route::resource('inicioTiquete','ControladorTiquete');
 
 Route::resource('inicioAdministracion','ControladorProductos');
+Route::resource('inicioAdministracion','ControladorAdministracion');
 
 
