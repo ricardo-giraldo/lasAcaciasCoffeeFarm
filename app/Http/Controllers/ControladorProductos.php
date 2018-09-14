@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class ControladorProductos extends Controller
 {
+    /**
+    *Método para registrar o crear productos, se recibe como parámetro la petición enviada por *POST desde la vista y se crea el producto con los atributos
+    */
     public function store(Request $request){
     	
     	$producto = new producto();
