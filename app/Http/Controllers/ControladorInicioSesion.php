@@ -22,13 +22,13 @@ class ControladorInicioSesion extends Controller
 				if ($usuario->tipo_usuario=='Administrador') {
 					
 					return view('inicioAdministracion');
-					//return Redirect::to('welcome');
+					//return Redirect::to('inicioAdministracion');
 
 				//Si el usuario es un vendedor, se direcciona a la pantalla de ventas
 				}elseif ($usuario->tipo_usuario=='Vendedor') {
 					
 					return view('inicioVentas');
-					//return Redirect::to('/');
+					//return Redirect::to('inicioVentas');
 
 				}
 
@@ -37,7 +37,7 @@ class ControladorInicioSesion extends Controller
 		}
 
 		//Si el usuario no es correcto, se direcciona a la misma página de inicio de sesión
-		return view('welcome');
+		return view('inicioSesion');
 		//return Redirect::to('/');
 		Session::flash('message-error','Usuario incorrecto');
 
