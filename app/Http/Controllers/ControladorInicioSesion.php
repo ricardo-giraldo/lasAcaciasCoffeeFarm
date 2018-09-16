@@ -28,7 +28,7 @@ class ControladorInicioSesion extends Controller
 				//Si el usuario es un administrador se direcciona a la pantalla de administracion
 				if ($usuario->tipo_usuario=='Administrador') {
 					
-					return view('inicioAdministracion', compact('listadoProductos'));
+					return view('inicioAdministracion', compact('listadoProductos');
 					//return Redirect::to('inicioAdministracion');
 
 				//Si el usuario es un vendedor, se direcciona a la pantalla de ventas
