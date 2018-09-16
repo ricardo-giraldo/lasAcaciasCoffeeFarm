@@ -118,19 +118,96 @@
 
 		</section>
 		<section id="pantallaHospedaje", class="pantallaHospedajes">
-			<h1>Registro y gestión de hospedajes</h1>
-			<h1>
-				<div id='generalHospedaje'>
-					
-				</div>
-			</h1>
+			<form class="form-group" method="POST" action="/hospedajes/registrar">
+			     @csrf
+				<h1>Registro y gestión de hospedajes</h1>
+				<label>Ingrese el nombre:</label>
+					<div class="form-group">
+						<input type="text" name="nombre" class="form-group">
+					</div>
+					<button type="submit" class="btn btn-primary">Registrar hospedaje</button>
+     		</form>
+
+				<table class="tablaProductos">
+					<thead>
+						<th>Nombre</th>
+						<th>Opciones</th>
+					</thead>
+
+						<tbody>
+														
+							@foreach($listadoHospedajes as $hospedaje)
+								<tr>
+									<td>{{$hospedaje->nombre}}</td>
+										<td>							
+											<a href="/hospedajes/editar/{{$hospedaje->id}}" class="btn btn-warning">Editar</a>
+											<a href="/hospedajes/eliminar/{{$hospedaje->id}}" class="btn btn-warning">Eliminar</a>
+										</td>
+								</tr>							
+							@endforeach				
+							
+						</tbody>
+							
+				</table>
+
 		</section>
+		
+
 
 
 		<section id="pantallaTiquete", class="pantallaTiquetes">
-			<h1>Registro y gestión de tiquetes</h1>
-		</section>
-		<section id="pantallaReporte", class="pantallaReportes">
+			
+			<form class="form-group" method="POST" action="/tiquetes/registrar">
+				@csrf
+				<h1>Registro y gestión de tiquetes</h1>
+
+				<label>Ingrese el número:</label>
+				<div class="form-group">
+					<input type="text" name="numero" class="form-group">
+				</div>
+
+				<label>Ingrese el precio:</label>
+				<div class="form-group">
+					<input type="text" name="precio" class="form-group">
+				</div>
+
+				<label>Seleccione hospedaje:</label>
+				<select class="form-group" name="hospedaje">
+
+					@foreach ($listadoHospedajes as $hospedaje)
+						<option value="{{ $hospedaje['id'] }}">{{ $hospedaje['nombre'] }}</option>
+					@endforeach	
+				</select>
+				<button type="submit" class="btn btn-primary">Registrar tiquete</button>
+			</form>	
+			<table class="tablaProductos">
+					<thead>
+						<th>Número</th>
+						<th>Precio</th>
+						<th>Hospedaje</th>
+						
+					</thead>
+
+					<tbody>
+							@foreach($listadoTiquetes as $tiquete)
+							<tr>
+								<td>{{$tiquete->numero}}</td>
+								<td>{{$tiquete->precio}}</td>
+								<td>{{$tiquete->id_hospedaje}}</td>
+								<td>
+									<a href="/tiquetes/editar/{{$tiquete->id}}" class="btn btn-warning">Editar</a>
+									<a href="/tiquetes/eliminar/{{$tiquete->id}}" class="btn btn-warning">Eliminar</a>
+								</td>
+							</tr>						
+						@endforeach				
+						
+					</tbody>
+						
+				</table>
+
+
+		</section>	
+			<section id="pantallaReporte", class="pantallaReportes">
 			<h1>Reportes</h1>
 		</section>
 	</main>

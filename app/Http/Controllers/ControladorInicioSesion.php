@@ -22,13 +22,13 @@ class ControladorInicioSesion extends Controller
 			if ($usuario->email == $request->email && $usuario->password == $request->password) {
 
 				$listadoProductos = producto::all();
-				//$listadoHospedajes = hospedaje::all();
-				//$listadoTiquetes = tiquete::all();
+				$listadoHospedajes = hospedaje::all();
+				$listadoTiquetes = tiquete::all();
 
 				//Si el usuario es un administrador se direcciona a la pantalla de administracion
 				if ($usuario->tipo_usuario=='Administrador') {
 					
-					return view('inicioAdministracion', compact('listadoProductos');
+					return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes'));
 					//return Redirect::to('inicioAdministracion');
 
 				//Si el usuario es un vendedor, se direcciona a la pantalla de ventas
@@ -50,3 +50,4 @@ class ControladorInicioSesion extends Controller
 
 	}
 }
+
