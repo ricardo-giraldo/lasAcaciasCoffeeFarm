@@ -4,6 +4,7 @@ namespace lasAcaciasCoffeeFarm\Http\Controllers;
 
 use Illuminate\Http\Request;
 use lasAcaciasCoffeeFarm\producto;
+use lasAcaciasCoffeeFarm\hospedaje;
 use Illuminate\Support\Facades\DB;
 
 class ControladorProductos extends Controller
@@ -23,7 +24,8 @@ class ControladorProductos extends Controller
     	$producto->save();
 
     	$listadoProductos = producto::all();
-		return view('inicioAdministracion', compact('listadoProductos'));
+    	$listaHospedaje = hospedaje::all();
+		return view('inicioAdministracion', compact('listadoProductos', 'listaHospedaje'));
     	
 	}
 
@@ -39,9 +41,10 @@ class ControladorProductos extends Controller
 			
 		$producto = producto::find($producto);
 		$producto->delete();
-
 		$listadoProductos = producto::all();
-		return view('inicioAdministracion', compact('listadoProductos'));
+		$listaHospedaje = hospedaje::all(); 	
+
+		return view('inicioAdministracion', compact('listadoProductos', 'listaHospedaje'));
 
 	}
 
@@ -52,6 +55,7 @@ class ControladorProductos extends Controller
 		$producto -> save();
 
 		$listadoProductos = producto::all();
-		return view('inicioAdministracion', compact('listadoProductos'));
+		$listaHospedaje = hospedaje::all();
+		return view('inicioAdministracion', compact('listadoProductos', 'listaHospedaje'));
 	}
 }

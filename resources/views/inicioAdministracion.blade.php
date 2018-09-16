@@ -118,13 +118,41 @@
 
 		</section>
 		<section id="pantallaHospedaje", class="pantallaHospedajes">
-			<h1>Registro y gestión de hospedajes</h1>
-			<h1>
-				<div id='generalHospedaje'>
-					
-				</div>
-			</h1>
+			<form class="form-group" method="POST" action="/hospedajes/registrar">
+			     @csrf
+				<h1>Registro y gestión de hospedajes</h1>
+				<label>Ingrese el nombre:</label>
+					<div class="form-group">
+						<input type="text" name="nombre" class="form-group">
+					</div>
+					<button type="submit" class="btn btn-primary">Registrar producto</button>
+     		</form>
+
+				<table class="tablaProductos">
+					<thead>
+						<th>Nombre</th>
+						<th>Opciones</th>
+					</thead>
+
+						<tbody>
+														
+							@foreach($listaHospedaje as $hospedaje)
+								<tr>
+									<td>{{$hospedaje->nombre}}</td>
+										<td>							
+											<a href="/hospedajes/editar/{{$hospedaje->id}}" class="btn btn-warning">Editar</a>
+											<a href="/hospedajes/eliminar/{{$hospedaje->id}}" class="btn btn-warning">Eliminar</a>
+										</td>
+								</tr>							
+							@endforeach				
+							
+						</tbody>
+							
+				</table>
+
 		</section>
+		
+
 
 
 		<section id="pantallaTiquete", class="pantallaTiquetes">

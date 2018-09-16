@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('inicioSesion','ControladorInicioSesion');
+//______________________________________________________________________
+//rutas de controllador Producto
 
 Route::resource('inicioTiquete','ControladorTiquete');
 
@@ -27,8 +29,15 @@ Route::resource('/productos/registrar','ControladorProductos');
 Route::get('/productos/editar/{id}','ControladorProductos@editarProducto');
 
 Route::get('/productos/eliminar/{id}','ControladorProductos@eliminarProducto');
+//______________________________________________________________________
+//rutas de controllador Hospedaje
+Route::resource('/hospedajes/registrar','controladorHospedaje');
 
-Route::get('/productos/actualizar/{id}','ControladorProductos@actualizarProducto');
+Route::get('/hospedajes/editar/{id}','controladorHospedaje@editarHospedaje');
+
+Route::get('/hospedajes/eliminar/{id}','controladorHospedaje@eliminarHospedaje');
+
+Route::get('/hospedajes/actualizar/{id}','controladorHospedaje@actualiarHospedaje');
 
 Route::resource('/tiquetes/registrar','ControladorTiquete');
 
