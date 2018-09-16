@@ -60,28 +60,34 @@
 	<main>
 		<section id="pantallaProducto", class="pantallaProductos">
 
-			{!!Form::open(['route'=>'inicioSesion.store', 'method'=>'POST'])!!}
-
+			<form class="form-group" method="POST" action="/productos/registrar">
+				@csrf
 				<h2>Registro de productos</h2>
 
 				<label>Seleccione el tipo de producto:</label>
 				<div class="form-group">
-					{!!Form::select('Tipo de producto', ['1' => 'Café', '2' => 'Bebidas', '3' => 'Embotellados', '4' => 'Tortas'])!!}
+					<select class="form-group" name="tipo_producto">
+						<option value="1">Café</option>
+						<option value="2">Bebidas</option>
+						<option value="3">Embotellados</option>
+						<option value="4">Tortas</option>
+					</select>
 				</div>
+				
 
 				<label>Ingrese el nombre:</label>
 				<div class="form-group">
-					{!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'nombre'])!!}
+					<input type="text" name="nombre" class="form-group">
 				</div>
 			
 				<label>Ingrese el precio:</label>
 				<div class="form-group">
-					{!!Form::text('precio',null,['class'=>'form-control', 'placeholder'=>'precio'])!!}
+					<input type="text" name="precio" class="form-group">
 				</div>
+				<button type="submit" class="btn btn-primary">Registrar producto</button>
+				
 
-				{!!Form::submit('Registrar producto',['class'=>'btn btn-primary'])!!}
-
-			{!!Form::close()!!}
+			</form>
 
 			<table class="tablaProductos">
 					<thead>
@@ -93,17 +99,18 @@
 					</thead>
 
 					<tbody>
-						
+							@foreach($listadoProductos as $producto)
 							<tr>
-								<td>Café</td>
-								<td>Café molido de 250 g</td>
-								<td>$10.000</td>
-								<td>30</td>
+								<td>{{$producto->id_tipo_producto}}</td>
+								<td>{{$producto->nombre}}</td>
+								<td>{{$producto->precio}}</td>
+								<td>{{$producto->cantidad}}</td>
 								<td>
-									<a href="#" class="btn btn-warning">Editar</a>
-									<a href="#" class="btn btn-warning">Eliminar</a>
+									<a href="/productos/editar/{{$producto->id}}" class="btn btn-warning">Editar</a>
+									<a href="/productos/eliminar/{{$producto->id}}" class="btn btn-warning">Eliminar</a>
 								</td>
 							</tr>						
+						@endforeach				
 						
 					</tbody>
 						
@@ -121,7 +128,57 @@
 
 
 		<section id="pantallaTiquete", class="pantallaTiquetes">
-			<h1>Registro y gestión de tiquetes</h1>  
+			
+			<form class="form-group" method="POST" action="/tiquetes/registrar">
+				@csrf
+				<h1>Registro y gestión de tiquetes</h1>
+
+				<label>Ingrese el número:</label>
+				<div class="form-group">
+					<input type="text" name="numero" class="form-group">
+				</div>
+
+				<label>Ingrese el precio:</label>
+				<div class="form-group">
+					<input type="text" name="precio" class="form-group">
+				</div>
+
+				<label>Seleccione hospedaje:</label>
+				<select class="form-group" name="hospedaje">
+
+					@foreach ($listadoHospedajes as $hospedaje)
+						<option value="{{ $hospedaje['id'] }}">{{ $hospedaje['nombre'] }}</option>
+					@endforeach	
+				</select>
+				<button type="submit" class="btn btn-primary">Registrar tiquete</button>
+			</form>	
+			<table class="tablaProductos">
+					<thead>
+						<th>Número</th>
+						<th>Precio</th>
+						<th>Hospedaje</th>
+						
+					</thead>
+
+					<tbody>
+							@foreach($listadoTiquetes as $tiquete)
+							<tr>
+								<td>{{$tiquete->numero}}</td>
+								<td>{{$tiquete->precio}}</td>
+								<td>{{$tiquete->id_hospedaje}}</td>
+								<td>
+									<a href="/tiquetes/editar/{{$tiquete->id}}" class="btn btn-warning">Editar</a>
+									<a href="/tiquetes/eliminar/{{$tiquete->id}}" class="btn btn-warning">Eliminar</a>
+								</td>
+							</tr>						
+						@endforeach				
+						
+					</tbody>
+						
+				</table>
+
+
+		</section>	
 			<section id="pantallaReporte", class="pantallaReportes">
 			<h1>Reportes</h1>
 		</section>

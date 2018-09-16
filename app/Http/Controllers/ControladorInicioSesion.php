@@ -4,6 +4,9 @@ namespace lasAcaciasCoffeeFarm\Http\Controllers;
 
 use Illuminate\Http\Request;
 use lasAcaciasCoffeeFarm\User;
+use lasAcaciasCoffeeFarm\producto;
+use lasAcaciasCoffeeFarm\hospedaje;
+use lasAcaciasCoffeeFarm\tiquete;
 
 class ControladorInicioSesion extends Controller
 {
@@ -18,10 +21,15 @@ class ControladorInicioSesion extends Controller
 			//se verifica que el usuario ingresado tenga un email y una contraseña correctos
 			if ($usuario->email == $request->email && $usuario->password == $request->password) {
 
+				$listadoProductos = producto::all();
+				$listadoHospedajes = hospedaje::all();
+				//$listadoHospedajes = hospedaje::all();
+				$listadoTiquetes = tiquete::all();
+
 				//Si el usuario es un administrador se direcciona a la pantalla de administracion
 				if ($usuario->tipo_usuario=='Administrador') {
 					
-					return view('inicioAdministracion');
+					return view('inicioAdministracion', compact('listadoProductos','listadoHospedajes','listadoTiquetes'));
 					//return Redirect::to('inicioAdministracion');
 
 				//Si el usuario es un vendedor, se direcciona a la pantalla de ventas

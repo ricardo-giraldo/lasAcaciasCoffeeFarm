@@ -3,6 +3,9 @@
 namespace lasAcaciasCoffeeFarm\Http\Controllers;
 
 use Illuminate\Http\Request;
+use lasAcaciasCoffeeFarm\hospedaje;
+use lasAcaciasCoffeeFarm\tiquete;
+use lasAcaciasCoffeeFarm\producto;
 use lasAcaciasCoffeeFarm\Http\Controllers\Controller;
 
 class ControladorTiquete extends Controller
@@ -24,7 +27,7 @@ class ControladorTiquete extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -35,7 +38,17 @@ class ControladorTiquete extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tiquete = new tiquete();
+        $tiquete->numero = $request->input('numero');
+        $tiquete->precio = $request->input('precio');
+        $tiquete->id_hospedaje = $request->input('hospedaje');
+
+        $tiquete->save();
+
+        $listadoTiquetes = tiquete::all();
+        $listadoProductos = producto::all();
+        $listadoHospedajes = hospedaje::all();
+       return view('inicioAdministracion', compact('listadoTiquetes','listadoHospedajes','listadoHospedajes','listadoProductos'));
     }
 
     /**
@@ -55,9 +68,11 @@ class ControladorTiquete extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function editarTiquete($tiquete){
+
+        $tiquete = tiquete::find($tiquete);
+        return view('editarTiquete', compact('tiquete'));
+
     }
 
     /**
@@ -67,19 +82,35 @@ class ControladorTiquete extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+   public function actualizarTiquete(Request $request, $id){
 
+        $tiquete = tiquete::find($id);
+        $tiquete -> fill($request->all());
+        $tiquete -> save();
+
+        $listadoTiquetes = tiquete::all();
+        $listadoProductos = producto::all();
+        $listadoHospedajes = hospedaje::all();
+        
+     return view('inicioAdministracion', compact('listadoTiquetes','listadoHospedajes','listadoHospedajes','listadoProductos'));
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function eliminarTiquete($tiquete){
+
+            
+        $tiquete = tiquete::find($tiquete);
+        $tiquete->delete();
+
+        $listadoTiquetes = tiquete::all();
+        $listadoProductos = producto::all();
+        $listadoHospedajes = hospedaje::all();
+        
+     return view('inicioAdministracion', compact('listadoTiquetes','listadoHospedajes','listadoHospedajes','listadoProductos'));
+
     }
 }
