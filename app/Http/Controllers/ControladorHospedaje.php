@@ -7,6 +7,8 @@ use lasAcaciasCoffeeFarm\hospedaje;
 use lasAcaciasCoffeeFarm\granja;
 use lasAcaciasCoffeeFarm\producto;
 use lasAcaciasCoffeeFarm\tiquete;
+use lasAcaciasCoffeeFarm\publicacion;
+use lasAcaciasCoffeeFarm\comentario;
 
 use lasAcaciasCoffeeFarm\Http\Controllers\Controller;
 
@@ -52,7 +54,9 @@ class ControladorHospedaje extends Controller
         $listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
         $listadoTiquetes = tiquete::all();
-        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes'));
+        $listadoPublicaciones = publicacion::all();
+        $listadoComentarios = comentario::all();
+        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
     }
 
     /**
@@ -97,7 +101,9 @@ class ControladorHospedaje extends Controller
         $listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
         $listadoTiquetes = tiquete::all();
-        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes'));
+        $listadoPublicaciones = publicacion::all();
+        $listadoComentarios = comentario::all();
+        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
  
     }
 
@@ -115,7 +121,9 @@ class ControladorHospedaje extends Controller
         $listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
         $listadoTiquetes = tiquete::all();
-        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes'));
+        $listadoPublicaciones = publicacion::all();
+        $listadoComentarios = comentario::all();
+        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
 
      }
 }

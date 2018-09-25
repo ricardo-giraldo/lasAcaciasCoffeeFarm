@@ -6,47 +6,41 @@ use Illuminate\Http\Request;
 use lasAcaciasCoffeeFarm\producto;
 use lasAcaciasCoffeeFarm\hospedaje;
 use lasAcaciasCoffeeFarm\tiquete;
-use Illuminate\Support\Facades\DB;
 use lasAcaciasCoffeeFarm\publicacion;
 use lasAcaciasCoffeeFarm\comentario;
 
-class ControladorProductos extends Controller
+class ControladorPublicaciones extends Controller
 {
-    /**
-    *Método para registrar o crear productos, se recibe como parámetro la petición enviada por *POST desde la vista y se crea el producto con los atributos
-    */
-    public function store(Request $request){
+     public function store(Request $request){
     	
-    	$producto = new producto();
-    	$producto->nombre = $request->input('nombre');
-    	$producto->precio = $request->input('precio');
-    	$producto->cantidad = '0';
-    	$producto->id_granja = '1';
-    	$producto->id_tipo_producto = $request->input('tipo_producto');
+    	$publicacion = new publicacion();
+    	$publicacion->titulo = $request->input('titulo');
+    	$publicacion->resumen = $request->input('resumen');
+    	$publicacion->texto = $request->input('texto');
 
-    	$producto->save();
+    	$publicacion->save();
 
     	$listadoProductos = producto::all();
     	$listadoHospedajes = hospedaje::all();
     	$listadoTiquetes = tiquete::all();
-		$listadoPublicaciones = publicacion::all();
-        $listadoComentarios = comentario::all();
+    	$listadoPublicaciones = publicacion::all();
+		$listadoComentarios = comentario::all();
         return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
     	
 	}
 
-	public function editarProducto($producto){
+	public function editarPublicacion($publicacion){
 
-		$producto = producto::find($producto);
-		return view('editarProducto', compact('producto'));
+		$publicacion = publicacion::find($publicacion);
+		return view('editarPublicacion', compact('publicacion'));
 
 	}
 
-	public function eliminarProducto($producto){
+	public function eliminarPublicacion($publicacion){
 
 			
-		$producto = producto::find($producto);
-		$producto->delete();
+		$publicacion = publicacion::find($publicacion);
+		$publicacion->delete();
 		
 		$listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
@@ -57,11 +51,11 @@ class ControladorProductos extends Controller
 
 	}
 
-	public function actualizarProducto(Request $request, $id){
+	public function actualizarPublicacion(Request $request, $id){
 
-		$producto = producto::find($id);
-		$producto -> fill($request->all());
-		$producto -> save();
+		$publicacion = publicacion::find($id);
+		$publicacion -> fill($request->all());
+		$publicacion -> save();
 
 		$listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();

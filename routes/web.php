@@ -51,3 +51,26 @@ Route::get('/tiquetes/editar/{id}','ControladorTiquete@editarTiquete');
 Route::get('/tiquetes/eliminar/{id}','ControladorTiquete@eliminarTiquete');
 
 Route::get('/tiquetes/actualizar/{id}','ControladorTiquete@actualizarTiquete');
+
+//__________________________________________________________________________________
+//Rutas del controlador publicacion
+
+Route::resource('/publicaciones/registrar','ControladorPublicaciones');
+
+Route::get('/publicaciones/editar/{id}','ControladorPublicaciones@editarPublicacion');
+
+Route::get('/publicaciones/eliminar/{id}','ControladorPublicaciones@eliminarPublicacion');
+
+Route::get('/publicaciones/actualizar/{id}','ControladorPublicaciones@actualizarPublicacion');
+
+//__________________________________________________________________________________
+//Rutas del controlador comentario
+
+Route::resource('/comentarios/registrar','ControladorComentarios');
+
+Route::get('/comentarios/eliminar/{id}','ControladorComentarios@eliminarComentario');
+
+
+//__________________________________________________________________________________
+//Rutas del controlador comentario
+Route::get('/turistas','ControladorTuristas@cargarPagina');

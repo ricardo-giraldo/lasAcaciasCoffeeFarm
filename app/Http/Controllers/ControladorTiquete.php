@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use lasAcaciasCoffeeFarm\hospedaje;
 use lasAcaciasCoffeeFarm\tiquete;
 use lasAcaciasCoffeeFarm\producto;
+use lasAcaciasCoffeeFarm\publicacion;
+use lasAcaciasCoffeeFarm\comentario;
 use lasAcaciasCoffeeFarm\Http\Controllers\Controller;
 
 class ControladorTiquete extends Controller
@@ -48,8 +50,9 @@ class ControladorTiquete extends Controller
         $listadoTiquetes = tiquete::all();
         $listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
-       return view('inicioAdministracion', compact('listadoTiquetes','listadoHospedajes','listadoHospedajes','listadoProductos'));
-    }
+        $listadoPublicaciones = publicacion::all();
+        $listadoComentarios = comentario::all();
+        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
 
     /**
      * Display the specified resource.
@@ -91,8 +94,9 @@ class ControladorTiquete extends Controller
         $listadoTiquetes = tiquete::all();
         $listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
-        
-     return view('inicioAdministracion', compact('listadoTiquetes','listadoHospedajes','listadoHospedajes','listadoProductos'));
+        $listadoPublicaciones = publicacion::all();
+        $listadoComentarios = comentario::all();
+        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
     }
     /**
      * Remove the specified resource from storage.
@@ -109,8 +113,9 @@ class ControladorTiquete extends Controller
         $listadoTiquetes = tiquete::all();
         $listadoProductos = producto::all();
         $listadoHospedajes = hospedaje::all();
-        
-     return view('inicioAdministracion', compact('listadoTiquetes','listadoHospedajes','listadoHospedajes','listadoProductos'));
+        $listadoPublicaciones = publicacion::all();
+        $listadoComentarios = comentario::all();
+        return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
 
     }
 }

@@ -7,6 +7,8 @@ use lasAcaciasCoffeeFarm\User;
 use lasAcaciasCoffeeFarm\producto;
 use lasAcaciasCoffeeFarm\hospedaje;
 use lasAcaciasCoffeeFarm\tiquete;
+use lasAcaciasCoffeeFarm\publicacion;
+use lasAcaciasCoffeeFarm\comentario;
 
 class ControladorInicioSesion extends Controller
 {
@@ -24,11 +26,14 @@ class ControladorInicioSesion extends Controller
 				$listadoProductos = producto::all();
 				$listadoHospedajes = hospedaje::all();
 				$listadoTiquetes = tiquete::all();
+				$listadoPublicaciones = publicacion::all();
+				$listadoComentarios = comentario::all();
 
 				//Si el usuario es un administrador se direcciona a la pantalla de administracion
 				if ($usuario->tipo_usuario=='Administrador') {
 					
-					return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes'));
+					
+					return view('inicioAdministracion', compact('listadoProductos', 'listadoHospedajes', 'listadoTiquetes', 'listadoPublicaciones', 'listadoComentarios'));
 					//return Redirect::to('inicioAdministracion');
 
 				//Si el usuario es un vendedor, se direcciona a la pantalla de ventas

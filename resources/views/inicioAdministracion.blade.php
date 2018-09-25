@@ -38,13 +38,23 @@
 					<a id="4" class="nav-link" href="#pantallaReportes" style="font-size: 18px;">
 						<p><i class="fa fa-file-alt"></i> Reportes</p>
 					</a>
+				</li>	
+				<li class="nav-item">
+					<a id="5" class="nav-link" href="#pantallaPublicaciones" style="font-size: 18px;">
+						<p><i class="fa fa-file-alt"></i> Publicaciones</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a id="6" class="nav-link" href="#pantallaComentarios" style="font-size: 18px;">
+						<p><i class="fa fa-file-alt"></i> Comentarios</p>
+					</a>
 				</li>							
 			</ul>
 		</div>
 		<main class="col colmd mt-2">
 
 			<section id="pantallaProducto">
-				<h2>Registro de productos</h2>
+				<h2>Registro y gestión de productos</h2>
 				<div class="text-center">
 					<form class="form-group" method="POST" action="/productos/registrar">
 						@csrf
@@ -183,8 +193,69 @@
 					</table>
 				</div>
 			</section>	
-				<section id="pantallaReporte">
+			<section id="pantallaReporte">
 				<h1>Reportes</h1>
+			</section>
+			<section id="pantallaPublicaciones">
+				<h1>Registro y gestión de publicaciones</h1>
+				<form class="form-group" method="POST" action="/publicaciones/registrar">
+					@csrf
+					<div class="wrapper-form form-p" style="">
+						<label>Título:</label>
+						<div class="form-group">
+							<input type="text" name="titulo" class="form-group">
+						</div>
+						<label>Resumen:</label>
+						<div class="form-group">
+							<input type="text" name="resumen" class="form-group">
+						</div>
+						<label>Texto:</label>
+						<div class="form-group">
+							<textarea name="texto"></textarea> 
+						</div>
+						<button type="submit" class="btn btn-primary">Registrar publicacion</button>	
+					</div>
+				</form>
+				<table class="table mt-5">
+					<thead class="thead-light">
+						<th scope="col">Título</th>
+						<th scope="col">Resumen</th>
+						<th scope="col">Opciones</th>
+					</thead>
+					<tbody>
+						@foreach($listadoPublicaciones as $publicacion)
+							<tr scope="row">
+								<td>{{$publicacion->titulo}}</td>
+								<td>{{$publicacion->resumen}}</td>
+								<td>
+									<a href="/publicaciones/editar/{{$publicacion->id}}" class="btn btn-warning">Editar</a>
+									<a href="/publicaciones/eliminar/{{$publicacion->id}}" class="btn btn-danger">Eliminar</a>
+								</td>
+							</tr>						
+						@endforeach											
+					</tbody>							
+				</table>
+			</section>
+			<section id="pantallaComentarios">
+				<h1>Comentarios</h1>
+				<table class="table mt-5">
+					<thead class="thead-light">
+						<th scope="col">Turista</th>
+						<th scope="col">Comentario</th>
+						<th scope="col">Opciones</th>
+					</thead>
+					<tbody>
+						@foreach($listadoComentarios as $comentario)
+							<tr scope="row">
+								<td>{{$comentario->nombre_turista}}</td>
+								<td>{{$comentario->texto}}</td>
+								<td>
+									<a href="/comentarios/eliminar/{{$comentario->id}}" class="btn btn-danger">Eliminar</a>
+								</td>
+							</tr>						
+						@endforeach											
+					</tbody>							
+				</table>
 			</section>
 		</main>	
 	</div>
@@ -196,40 +267,84 @@
 				$( "#2" ).attr( "class", "nav-link" );
 				$( "#3" ).attr( "class", "nav-link" );
 				$( "#4" ).attr( "class", "nav-link" );
+				$( "#5" ).attr( "class", "nav-link" );
+				$( "#6" ).attr( "class", "nav-link" );
 				$("#pantallaProducto").css("display", "block");
 				$("#pantallaHospedaje").css("display", "none");
 				$("#pantallaTiquete").css("display", "none");
 				$("#pantallaReporte").css("display", "none");
+				$("#pantallaPublicaciones").css("display", "none");
+				$("#pantallaComentarios").css("display", "none");
 			});
 			$("#2").click(function(){
 				$( "#1" ).attr( "class", "nav-link " );
 				$( "#2" ).attr( "class", "nav-link active" );
 				$( "#3" ).attr( "class", "nav-link" );
 				$( "#4" ).attr( "class", "nav-link" );
+				$( "#5" ).attr( "class", "nav-link" );
+				$( "#6" ).attr( "class", "nav-link" );
 				$("#pantallaHospedaje").css("display", "block");
 				$("#pantallaProducto").css("display", "none");
 				$("#pantallaTiquete").css("display", "none");
 				$("#pantallaReporte").css("display", "none");
+				$("#pantallaPublicaciones").css("display", "none");
+				$("#pantallaComentarios").css("display", "none");
 			});
 			$("#3").click(function(){
 				$( "#1" ).attr( "class", "nav-link " );
 				$( "#2" ).attr( "class", "nav-link" );
 				$( "#3" ).attr( "class", "nav-link active" );
 				$( "#4" ).attr( "class", "nav-link" );
+				$( "#5" ).attr( "class", "nav-link" );
+				$( "#6" ).attr( "class", "nav-link" );
 				$("#pantallaTiquete").css("display", "block");
 				$("#pantallaProducto").css("display", "none");
 				$("#pantallaHospedaje").css("display", "none");
 				$("#pantallaReporte").css("display", "none");
+				$("#pantallaPublicaciones").css("display", "none");
+				$("#pantallaComentarios").css("display", "none");
 			});
 			$("#4").click(function(){
 				$( "#1" ).attr( "class", "nav-link " );
 				$( "#2" ).attr( "class", "nav-link" );
 				$( "#3" ).attr( "class", "nav-link" );
 				$( "#4" ).attr( "class", "nav-link active" );
+				$( "#5" ).attr( "class", "nav-link" );
+				$( "#6" ).attr( "class", "nav-link" );
 				$("#pantallaReporte").css("display", "block");
 				$("#pantallaHospedaje").css("display", "none");
 				$("#pantallaTiquete").css("display", "none");
 				$("#pantallaProducto").css("display", "none");
+				$("#pantallaPublicaciones").css("display", "none");
+				$("#pantallaComentarios").css("display", "none");
+			});
+			$("#5").click(function(){
+				$( "#1" ).attr( "class", "nav-link " );
+				$( "#2" ).attr( "class", "nav-link" );
+				$( "#3" ).attr( "class", "nav-link" );
+				$( "#4" ).attr( "class", "nav-link" );
+				$( "#5" ).attr( "class", "nav-link active" );
+				$( "#6" ).attr( "class", "nav-link" );
+				$("#pantallaReporte").css("display", "none");
+				$("#pantallaHospedaje").css("display", "none");
+				$("#pantallaTiquete").css("display", "none");
+				$("#pantallaProducto").css("display", "none");
+				$("#pantallaPublicaciones").css("display", "block");
+				$("#pantallaComentarios").css("display", "none");
+			});
+			$("#6").click(function(){
+				$( "#1" ).attr( "class", "nav-link " );
+				$( "#2" ).attr( "class", "nav-link" );
+				$( "#3" ).attr( "class", "nav-link" );
+				$( "#4" ).attr( "class", "nav-link" );
+				$( "#5" ).attr( "class", "nav-link" );
+				$( "#6" ).attr( "class", "nav-link active" );
+				$("#pantallaReporte").css("display", "none");
+				$("#pantallaHospedaje").css("display", "none");
+				$("#pantallaTiquete").css("display", "none");
+				$("#pantallaProducto").css("display", "none");
+				$("#pantallaPublicaciones").css("display", "none");
+				$("#pantallaComentarios").css("display", "block");
 			});
 
 		} );
